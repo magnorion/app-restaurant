@@ -4,14 +4,19 @@
   </ion-nav>
 </ion-header>
 <ion-content padding color="primary">
-  <img id="logo" src="https://ionicframework.com/img/homepage/ionic-for-everyone-icon.png">
   <form action="">
+    <img id="logo" src="https://ionicframework.com/img/homepage/ionic-for-everyone-icon.png">
     <ion-item class="field">
-      <ion-input placeholder="usuário" type="text"></ion-input>
+      <ion-input [(ngModel)]="user" name="user" placeholder="usuário" type="text"></ion-input>
     </ion-item>
     <ion-item class="field">
-      <ion-input placeholder="senha" type="password"></ion-input>
+      <ion-input [(ngModel)]="pass" name="pass" placeholder="senha" type="password"></ion-input>
     </ion-item>
-    <button ion-button type="submit"> fazer login </button>
+    <ion-button 
+    color="warning" 
+    shape="round"
+    fill="outline"
+    (click)="login()"
+    expand="full"> fazer login </ion-button>
   </form>
 </ion-content>

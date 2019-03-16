@@ -1,0 +1,53 @@
+<ion-menu side="start" contentId="conteudo" menuId="first">
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-title> Menu Principal </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="principal()">
+        <ion-icon name="home"></ion-icon> Dashboard
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon name="log-out"></ion-icon> Logout
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>
+      <ion-button #menu (click)="abrirMenu()" fill="clear" color="light">
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides>
+    <ion-slide *ngFor="let image of images">
+      <img [src]="image">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-content padding>
+    <h1 class="ion-text-center"> {{pagina}} </h1>
+    <p class="ion-text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a rutrum dui.
+      Nullam dignissim pretium dictum. Proin maximus ultricies metus at sodales. </p>
+    <h3> Oferecemos: </h3>
+    <ion-list>
+      <ion-item> Item 1 </ion-item>
+      <ion-item> Item 2 </ion-item>
+      <ion-item> Item 3 </ion-item>
+      <ion-item> Item 4 </ion-item>
+    </ion-list>
+    <ion-button 
+    color="warning" 
+    shape="round" 
+    (click)="fazerReserve()"
+    expand="full"> Fazer Reserva </ion-button>
+  </ion-content>
+</ion-content>

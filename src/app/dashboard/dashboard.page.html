@@ -1,9 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+  <ion-toolbar color="warning">
+    <ion-title>
+      <ion-button #menu (click)="abrirMenu()" fill="clear" color="light">
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-menu side="start" contentId="conteudo" menuId="first">
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-title> Menu Principal </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="principal()">
+        <ion-icon name="home"></ion-icon> Dashboard
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon name="log-out"></ion-icon> Logout
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
+<ion-slides pager>
+  <ion-slide *ngFor="let image of images">
+    <img [src]="image">
+  </ion-slide>
+</ion-slides>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let opcao of opcoes" (click)="selecionarOpcao(opcao.name)"> 
+      <ion-icon [name]="opcao.icone"></ion-icon> {{opcao.name}} 
+    </ion-item>
+  </ion-list>
 </ion-content>
+

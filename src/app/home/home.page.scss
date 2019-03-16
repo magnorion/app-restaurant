@@ -1,3 +1,7 @@
+ion-content form {
+  margin-top: 15vh;
+}
+
 #logo {
   margin: 5vh auto;
   display: block;
@@ -10,5 +14,8 @@
 
 .field ion-input {
   background: transparent;
-  color: #fff;
+}
+
+ion-button {
+  margin-top: 5vh;
 }
