@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Opcoes from '../../Models/Opcoes';
 import { MenuServiceService } from 'src/app/services/menu-service.service';
@@ -39,11 +39,7 @@ export class DashboardPage implements OnInit {
     this.menuService.emitChange(true);
   }
 
-  public proximaPagina(): void {
-    this.router.navigate(['/dashboard']);
-  }
-
   public selecionarOpcao(opt: string): void {
-    this.router.navigate(['/entretenimento'], {state: {opcao: opt}});
+    this.router.navigate(['/mapa'], {state: {opcao: opt}});
   }
 }

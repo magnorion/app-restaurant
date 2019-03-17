@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { MenuServiceService } from 'src/app/services/menu-service.service';
 
 @Component({
@@ -13,17 +12,9 @@ export class EntretenimentoPage implements OnInit {
   public pagina: string;
 
   constructor(
-    private router: Router,
     public alertController: AlertController,
     private menuService: MenuServiceService
-  ) {
-    try {
-      this.pagina = this.router.getCurrentNavigation().extras.state.opcao;
-      console.log(this.pagina);
-    } catch (err) {
-      this.router.navigate(['/dashboard']);
-    }
-  }
+  ) { }
 
   ionViewDidEnter() {
     this.menuService.emitChange(true);

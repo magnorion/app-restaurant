@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuServiceService } from 'src/app/services/menu-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mapa',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mapa.page.scss'],
 })
 export class MapaPage implements OnInit {
+  public pagina: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private menuService: MenuServiceService
+  ) {
+    try {
+      this.pagina = this.router.getCurrentNavigation().extras.state.opcao;
+    } catch (err) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
+  ngOnInit() {}
+
+  ionViewDidEnter() {
+    this.menuService.emitChange(true);
+  }
+
+  public acessarPagina(): void {
+    this.router.navigate(['/entretenimento']);
+  }
 }

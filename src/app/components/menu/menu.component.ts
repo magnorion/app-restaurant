@@ -34,4 +34,9 @@ export class MenuComponent implements OnInit {
     this.menu.close('first');
   }
 
+  public mapa(): void {
+    this.router.navigate(['/mapa']);
+    this.menu.close('first');
+  }
+
 }
