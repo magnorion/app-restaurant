@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import Opcoes from '../Models/Opcoes';
+import Opcoes from '../../Models/Opcoes';
+import { MenuServiceService } from 'src/app/services/menu-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +11,8 @@ import Opcoes from '../Models/Opcoes';
 export class DashboardPage implements OnInit {
 
   constructor(
-    private menu: MenuController,
-    private router: Router
+    private router: Router,
+    private menuService: MenuServiceService
   ) { }
 
   public images: Array<string>;
@@ -35,14 +35,8 @@ export class DashboardPage implements OnInit {
     ];
   }
 
-  public abrirMenu () {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  public logout(): void {
-    console.log('teste');
-    this.router.navigate(['/home']);
+  ionViewDidEnter() {
+    this.menuService.emitChange(true);
   }
 
   public proximaPagina(): void {

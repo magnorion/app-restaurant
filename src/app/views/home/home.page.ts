@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { MenuServiceService } from 'src/app/services/menu-service.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,13 @@ export class HomePage {
 
   constructor(
     private router: Router,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private menuService: MenuServiceService
   ) {}
+
+  ionViewDidEnter() {
+    this.menuService.emitChange(false);
+  }
 
   async presentAlert() {
     const alert = await this.alertController.create({

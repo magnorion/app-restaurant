@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, AlertController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
-import Opcoes from '../Models/Opcoes';
+import { Router } from '@angular/router';
+import { MenuServiceService } from 'src/app/services/menu-service.service';
 
 @Component({
   selector: 'app-entretenimento',
@@ -13,9 +13,9 @@ export class EntretenimentoPage implements OnInit {
   public pagina: string;
 
   constructor(
-    private menu: MenuController,
     private router: Router,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private menuService: MenuServiceService
   ) {
     try {
       this.pagina = this.router.getCurrentNavigation().extras.state.opcao;
@@ -25,24 +25,14 @@ export class EntretenimentoPage implements OnInit {
     }
   }
 
+  ionViewDidEnter() {
+    this.menuService.emitChange(true);
+  }
+
   ngOnInit() {
     this.images = [
       '/assets/banner/banner1.jpg',
     ];
-  }
-
-  public abrirMenu() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  public logout(): void {
-    console.log('teste');
-    this.router.navigate(['/home']);
-  }
-
-  public proximaPagina(): void {
-    this.router.navigate(['/dashboard']);
   }
 
   public fazerReserve(): void {
