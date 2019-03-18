@@ -1,0 +1,16 @@
+<ion-content>
+  <img src="/assets/banner/banner3.jpg" alt="">
+  <ion-card *ngFor="let produto of produtos">
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-align-center">
+        Valor: R$ {{produto.valor}},00
+      </ion-card-subtitle>
+      <ion-card-title class="ion-text-align-center">{{produto.titulo}}</ion-card-title>
+      <img [src]="produto.image">
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="carrinho($event, produto)" expand="full" color="primary">
+        Adicionar ao carrinho </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

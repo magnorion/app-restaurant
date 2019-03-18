@@ -4,22 +4,21 @@
       <img [src]="image">
     </ion-slide>
   </ion-slides>
-
-  <ion-content padding>
-    <h1 class="ion-text-center"> Opção Escolhida </h1>
-    <p class="ion-text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a rutrum dui.
-      Nullam dignissim pretium dictum. Proin maximus ultricies metus at sodales. </p>
-    <h3> Oferecemos: </h3>
-    <ion-list>
-      <ion-item> Item 1 </ion-item>
-      <ion-item> Item 2 </ion-item>
-      <ion-item> Item 3 </ion-item>
-      <ion-item> Item 4 </ion-item>
-    </ion-list>
-    <ion-button 
-    color="warning" 
-    shape="round" 
-    (click)="fazerReserve()"
-    expand="full"> Fazer Reserva </ion-button>
-  </ion-content>
+  <h1 class="ion-text-center"> Opção Escolhida </h1>
+  <p padding class="ion-text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a rutrum dui. Nullam dignissim pretium dictum. Proin maximus ultricies metus at sodales. </p>
+  <h3 padding> Oferecemos: </h3>
+  <ion-list>
+    <ion-item> Item 1 </ion-item>
+    <ion-item> Item 2 </ion-item>
+    <ion-item> Item 3 </ion-item>
+    <ion-item> Item 4 </ion-item>
+  </ion-list>
+  <ion-button 
+  color="success"
+  (click)="fazerReserve()"
+  expand="full"> Fazer Reserva </ion-button>
+  <ion-button 
+  (click)="vendas($event)"
+  expand="full"
+  color="primary"> Ver produtos </ion-button>
 </ion-content>

@@ -39,4 +39,9 @@ export class MenuComponent implements OnInit {
     this.menu.close('first');
   }
 
+  public carrinho(): void {
+    this.router.navigate(['/carrinho']);
+    this.menu.close('first');
+  }
+
 }

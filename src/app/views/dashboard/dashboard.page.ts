@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Opcoes from '../../Models/Opcoes';
-import { MenuServiceService } from 'src/app/services/menu-service.service';
+import { MenuServiceService } from 'src/app/services/menu/menu-service.service';
 
 @Component({
   selector: 'app-dashboard',

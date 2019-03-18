@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { MenuServiceService } from 'src/app/services/menu-service.service';
+import { MenuServiceService } from 'src/app/services/menu/menu-service.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
-export class HomePage {
-  public user: string;
+export class LoginPage {
+  public user: string ;
   public pass: string;
 
   constructor(
     private router: Router,
     public alertController: AlertController,
     private menuService: MenuServiceService
-  ) {}
+  ) {
+    this.user = '';
+    this.pass = '';
+  }
 
   ionViewDidEnter() {
     this.menuService.emitChange(false);

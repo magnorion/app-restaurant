@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { MenuServiceService } from 'src/app/services/menu-service.service';
+import { MenuServiceService } from 'src/app/services/menu/menu-service.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-entretenimento',
@@ -13,7 +14,8 @@ export class EntretenimentoPage implements OnInit {
 
   constructor(
     public alertController: AlertController,
-    private menuService: MenuServiceService
+    private menuService: MenuServiceService,
+    private router: Router
   ) { }
 
   ionViewDidEnter() {
@@ -41,4 +43,8 @@ export class EntretenimentoPage implements OnInit {
     await alert.present();
   }
 
+  public vendas(event): void {
+    event.preventDefault();
+    this.router.navigate(['/venda']);
+  }
 }
